@@ -17,18 +17,19 @@ function switchSections() {
 }
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = emailField.value;
+  e.preventDefault(); // Prevents the form from submitting the traditional way
+  const email = emailField.value; // Gets the value from the email input field
 
   //Simple email validation regex
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (emailPattern.test(email)) {
-    emailError.style.display = "none";
-    updateSuccessMessage(email);
-    switchSections();
+    // Validates the email format
+    emailError.style.display = "none"; // Hides any previous error message
+    updateSuccessMessage(email); // Updates the success message with the submitted email
+    switchSections(); // Switches the view to the success section
   } else {
-    emailError.style.display = "block";
+    emailError.style.display = "block"; // Displays an error message for invalid email
   }
 });
 
